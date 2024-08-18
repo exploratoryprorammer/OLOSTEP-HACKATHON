@@ -1,6 +1,6 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
-const DataModel = require('../models/data');  // Adjust path if necessary
+const DataModel = require('../models/data'); 
 
 const router = express.Router();
 
@@ -25,8 +25,7 @@ router.post('/scrape', async (req, res) => {
 });
 
 async function analyzeData(data) {
-    // AI analysis logic
-    return "Sample Category";
+    return "Too be done categories";
 }
 
 module.exports = router;

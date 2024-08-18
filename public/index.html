@@ -12,30 +12,19 @@
         <input type="text" id="url" name="url" required />
         <button type="submit">Scrape</button>
     </form>
+    <style>
+        #result {
+            white-space: pre-wrap; 
+            background-color: #f4f4f4;
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-family: monospace; 
+            max-width: 100%;
+            overflow-x: auto; 
+        }
+    </style>
     <pre id="result"></pre>
-    <script>
-        document.getElementById('theform').addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const url = document.getElementById('url').value;
-            try {
-                const response = await fetch('/api/scrape', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ url })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                document.getElementById('result').innerText = JSON.stringify(result, null, 2);
-            } catch (error) {
-                document.getElementById('result').innerText = `Error: ${error.message}`;
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
