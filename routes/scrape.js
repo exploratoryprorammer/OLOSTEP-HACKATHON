@@ -1,6 +1,6 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
-const DataModel = require('../models/data');
+const DataModel = require('../models/data');  // Adjust path if necessary
 
 const router = express.Router();
 
