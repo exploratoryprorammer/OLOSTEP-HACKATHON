@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Endpoint to set the MongoDB URI
 app.post('/set-uri', (req, res) => {
     dbURI = req.body.uri;
     globals.setGB(dbURI);
@@ -30,11 +29,8 @@ app.post('/set-uri', (req, res) => {
     }
 });
 
-// Function to connect to MongoDB
 function connectToDB(uri) {
     mongoose.connect(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
     }).then(() => {
         console.log('Connected to MongoDB');
     }).catch(error => {
@@ -42,7 +38,6 @@ function connectToDB(uri) {
     });
 }
 
-// Include the scrape route
 app.use('/api', scrapeRoute);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
