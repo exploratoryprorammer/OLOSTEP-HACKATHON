@@ -16,7 +16,7 @@ const config = {
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-mongoose.connect(config.uri, {
+mongoose.connect('mongodb+srv://rohanksah:2Y91bRjOHFEfC8QU@538scraper.mhcla.mongodb.net/olostep', {
 }).then(() => {
     console.log('Connected to DB');
 }).catch(error => {

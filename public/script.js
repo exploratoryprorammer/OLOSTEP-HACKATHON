@@ -1,15 +1,13 @@
 document.getElementById('theform').addEventListener('submit', async function (event) {
     event.preventDefault();
     const url = document.getElementById('url').value;
-    const uri = document.getElementById('uri').value;
-    uri
     try {
         const response = await fetch('/api/scrape', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ url, uri })
+            body: JSON.stringify({ url })
         });
 
         if (!response.ok) {
