@@ -6,7 +6,7 @@ const scrapeRoute = require('./routes/scrape');
 const globals = require('./globals');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
