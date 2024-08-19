@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set MongoDB URI</title>
+</head>
+<body>
+    <h1>Enter MongoDB URI</h1>
+    <form id="uriForm">
+        <label for="uri">MongoDB URI:</label>
+        <input type="text" id="uri" name="uri" required>
+        <button type="submit">Save URI</button>
+    </form>
+    <p id="message"></p>
+    <script>
+        document.getElementById('uriForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const uri = document.getElementById('uri').value;
+
+            const response = await fetch('/set-uri', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uri })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                document.getElementById('message').innerText = 'URI set successfully!';
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 1000);
+            } else {
+                document.getElementById('message').innerText = 'Failed to set URI.';
+            }
+        });
+    </script>
+</body>
+</html>
