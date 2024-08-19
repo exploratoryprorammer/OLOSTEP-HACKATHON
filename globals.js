@@ -1,6 +1,5 @@
 let gb = null; 
 let updateFlag = false; 
-let uri = 'mongodb+srv://rohanksah:2Y91bRjOHFEfC8QU@538scraper.mhcla.mongodb.net/'
 
 const setGB = (value) => {
     gb = value;

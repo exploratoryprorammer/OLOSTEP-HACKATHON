@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const scrapeRoute = require('./routes/scrape');
 const globals = require('./globals');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
