@@ -26,6 +26,7 @@ router.post('/scrape', async (req, res) => {
 });
 
 async function analyzeData(data) {
+    console.log("scrape result: ", data);
     return "Too be done categories";
 }
 
